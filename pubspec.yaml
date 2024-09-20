@@ -1,0 +1,43 @@
+name: example
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=3.0.0 <3.3.5'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ICON
+  cupertino_icons: ^1.0.2
+  flutter_launcher_icons: ^0.12.0
+
+  # GETX DEPENDENCY
+  get: 4.6.5
+  get_cli: ^1.8.1
+  get_storage: ^2.1.1
+
+  # API REQUEST DEPENDENCY
+  dio: ^5.4.0
+
+  # OTHERS
+  flutter_config: ^2.0.0
+  connectivity_plus: ^6.0.3
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  very_good_analysis: ^3.1.0
+  flutter_test:
+    sdk: flutter
+
+flutter_config:
+  path: ../
+
+get_cli:
+  sub_folder: false
+
+flutter:
+  assets:
+    - assets/launcher_icon/
+  uses-material-design: true

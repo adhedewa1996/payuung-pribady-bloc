@@ -1,0 +1,95 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[Debug] Development",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Development",
+            ],
+            "flutterMode": "debug",
+        },
+        {
+            "name": "[Profile] Development",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Development",
+            ],
+            "flutterMode": "profile",
+        },
+        {
+            "name": "[Release] Development",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Development",
+            ],
+            "flutterMode": "release",
+        },
+        {
+            "name": "[Debug] Staging",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Staging",
+            ],
+            "flutterMode": "debug",
+        },
+        {
+            "name": "[Profile] Staging",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Staging",
+            ],
+            "flutterMode": "profile",
+        },
+        {
+            "name": "[Release] Staging",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Staging",
+            ],
+            "flutterMode": "release",
+        },
+        {
+            "name": "[Debug] Production",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Production",
+            ],
+            "flutterMode": "debug",
+        },
+        {
+            "name": "[Profile] Production",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Production",
+            ],
+            "flutterMode": "profile",
+        },
+        {
+            "name": "[Release] Production",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "Production",
+            ],
+            "flutterMode": "release",
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+# DO NOT EDIT BY HAND!
+include: package:very_good_analysis/analysis_options.yaml
+analyzer:
+  strong-mode:
+    implicit-casts: true
+    implicit-dynamic: true
+  errors:
+    missing_required_param: warning
+    missing_return: error
+    todo: warning
+    deprecated_member_use_from_same_package: warning
+    unnecessary_import: warning
+    unnecessary_null_comparison: ignore
+    argument_type_not_assignable: ignore
+    invalid_assignment: ignore
+    inference_failure_on_collection_literal: ignore
+    inference_failure_on_function_invocation: ignore
+    inference_failure_on_function_return_type: ignore
+    inference_failure_on_instance_creation: ignore
+    inference_failure_on_uninitialized_variable: ignore
+    inference_failure_on_untyped_parameter: ignore
+    strict_raw_type: ignore
+    avoid_equals_and_hash_code_on_mutable_classes: ignore
+    throw_of_invalid_type: ignore
+    non_bool_condition: ignore
+    return_of_invalid_type: ignore
+    return_of_invalid_type_from_closure: ignore
+    sized_box_shrink_expand: ignore
+    avoid_bool_literals_in_conditional_expressions: ignore
+    depend_on_referenced_packages: ignore
+    use_setters_to_change_properties: ignore
+  exclude:
+    - "bin/cache/**"
+    - "dev/conductor/lib/proto/*"
+    - "lib/generated/**"
+    - "lib/app/models/**"
+
+linter:
+  rules:
+    public_member_api_docs: false
+    sort_pub_dependencies: false
+    flutter_style_todos: false
+    lines_longer_than_80_chars: false
+    prefer_const_constructors: false
+    prefer_int_literals: false
+    always_use_package_imports: false
+    avoid_print: false
+    unnecessary_lambdas: false
+    unnecessary_brace_in_string_interps: false
+    constant_identifier_names: false
+    unnecessary_overrides: false
+    unnecessary_string_interpolations: false
+    avoid_dynamic_calls: false
+    comment_references: false
+    cascade_invocations: false
+    avoid_positional_boolean_parameters: false
+    prefer_asserts_with_message: false
+    avoid_function_literals_in_foreach_calls: false
+    no_default_cases: false

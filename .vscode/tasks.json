@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "[BUILD] APPS FLAVOR",
+            "type": "shell",
+            "command": "flutter build ${input:buildPlatformOrBundle} --dart-define=ENVIRONMENT=${input:buildFlavor} --release --flavor ${input:buildFlavor} --build-name=${input:buildName} --build-number=${input:buildNumber}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "buildName",
+            "description": "Build version",
+            "default": "1.0.0",
+            "type": "promptString"
+        },
+        {
+            "id": "buildNumber",
+            "description": "Build Number",
+            "default": "1",
+            "type": "promptString"
+        },
+        {
+            "id": "buildFlavor",
+            "type": "pickString",
+            "description": "Choose flavor!",
+            "options": [
+                "Development",
+                "Production",
+            ],
+            "default": "Production"
+        },
+        {
+            "id": "buildPlatformOrBundle",
+            "type": "pickString",
+            "description": "Choose Platform Or Bundle!",
+            "options": [
+                "ipa",
+                "apk",
+                "appbundle",
+            ],
+            "default": "apk"
+        },
+    ]
+}

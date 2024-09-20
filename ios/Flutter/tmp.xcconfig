@@ -1,0 +1,5 @@
+APP_ID=com.example.example
+APP_NAME=Capybara
+APP_SUFFIX_ID=
+APP_ICON=AppIcon-production
+BASE_URL=https:/$()/example.com

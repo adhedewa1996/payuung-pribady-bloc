@@ -1,0 +1,125 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+project.ext.envConfigFiles = [
+        development: ".env.development",
+        staging: ".env.staging",
+        production: ".env.production",
+]
+apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
+
+android {
+    compileSdkVersion 34
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'InvalidPackage'
+    }
+
+    defaultConfig {
+        applicationId project.env.get("APP_ID")
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+        resValue "string", "build_config_package", project.env.get("APP_ID")
+        resValue "string", "application_id", project.env.get("APP_ID") + project.env.get("APP_SUFFIX_ID")
+    }
+
+
+    signingConfigs {
+        // signingConfigs => DEBUG ONLY !!!
+        // dibutuhkan untuk login google SSO
+        debug {
+            keyAlias 'debug'
+            keyPassword 'debug12345'
+            storeFile file('debug-keystore.jks')
+            storePassword 'debug12345'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            // useProguard true # depracate in gradle 7.x.x
+            shrinkResources true // # R8 enabled + auto remove un-used resource
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            matchingFallbacks = ["release", "debug"]
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            // useProguard true # depracate in gradle 7.x.x
+            shrinkResources true // # R8 enabled + auto remove un-used resource
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            matchingFallbacks = ["release", "debug"]
+            debuggable false
+        }
+    }
+
+    flavorDimensions "gredu"
+    productFlavors {
+        def developmentSigningVariable = signingConfigs.debug
+
+        Development {
+            signingConfig developmentSigningVariable
+            dimension "gredu"
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                    appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        Staging {
+            dimension "gredu"
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                    appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        Production {
+            dimension "gredu"
+            manifestPlaceholders = [
+                    appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.material:material:1.6.0'
+}

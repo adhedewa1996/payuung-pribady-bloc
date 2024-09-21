@@ -1,25 +1,19 @@
-import 'package:example/app/commons/services/app_connection.dart';
-import 'package:example/app/core/dependency_injection/dependency_injection.dart';
-import 'package:example/app/core/style/theme/theme.dart';
-import 'package:example/app/core/style/theme/theme_services.dart';
+import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_cubit.dart';
+import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_list/arithmetic_list_cubit.dart';
+import 'package:calculator_camera/app/bloc/storage/storage_cubit.dart';
+import 'package:calculator_camera/app/bloc/theme/theme_cubit.dart';
+import 'package:calculator_camera/app/common/services/local_storage_services.dart';
+import 'package:calculator_camera/app/routing/route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
-
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-
-import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await GetStorage.init(); // LOCAL STORAGE
+  await LocalStorageServices.init(); // LOCAL STORAGE
 
   await FlutterConfig.loadEnvVariables(); // LOAD ENVIRONMENT
-
-  await DependencyInjection.init(); // DEPENDENCY INJECTION
-
-  AppConnection.init();
 
   runApp(const MyApp());
 }
@@ -29,14 +23,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Application',
-      theme: Themes.light,
-      darkTheme: Themes.dark,
-      themeMode: ThemeService().theme,
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>(
+          create: (_) => ThemeCubit(),
+        ),
+        BlocProvider<StorageCubit>(
+          create: (_) => StorageCubit(),
+        ),
+        BlocProvider<ArithmeticCubit>(
+          create: (_) => ArithmeticCubit(),
+        ),
+        BlocProvider<ArithmeticListCubit>(
+          create: (_) => ArithmeticListCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BlocBuilder<ThemeCubit, ThemeData>(
+          builder: (context, theme) {
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              routerConfig: router,
+              theme: theme,
+            );
+          },
+        ),
+      ),
     );
   }
 }

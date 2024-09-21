@@ -1,28 +1,15 @@
 {
-	// Flutter UI Guides : https://dartcode.org/releases/v3-1/#preview-flutter-ui-guides
-	"dart.renameFilesWithClasses": "prompt",
-	"editor.lineHeight": 20,
-	"dart.previewFlutterUiGuides": true,
-	"editor.fontLigatures": true,
-	"dart.closingLabels": true,
-	// recommended settings : https://dartcode.org/docs/recommended-settings/
-	"[dart]": {
-		"editor.formatOnSave": true,
-		"editor.rulers": [
-			200
-		],
-		"editor.selectionHighlight": false,
-		"editor.suggest.snippetsPreventQuickSuggestions": false,
-		"editor.suggestSelection": "first",
-		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": false,
-	},
-	// ----------------------------------------------------------
-	// FIRA CODE FONT
-	// > brew tap homebrew/cask-fonts
-	// > brew cask install font-fira-code
-	// ----------------------------------------------------------
-	// "editor.fontFamily": "Fira Code",
-	// "editor.fontSize": 13.5
-	// ----------------------------------------------------------
+    "dart.lineLength": 200,
+    "editor.formatOnSave": true,
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "cmake.configureOnOpen": false,
+    "dart.flutterSdkPath": "/Users/yoseph/Developer/flutter",
+    "dart.sdkPath": "/usr/local/Cellar/dart@2.16/2.16.2/libexec",
+    "dart.sdkPaths": [
+        "/usr/local/Cellar/dart@2.16/2.16.2/libexec"
+    ],
+    "search.useIgnoreFiles": true,
+    "search.useGlobalIgnoreFiles": false,
+    "search.useParentIgnoreFiles": false
 }

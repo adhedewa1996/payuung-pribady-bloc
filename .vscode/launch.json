@@ -2,94 +2,174 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "[Debug] Development",
+            "name": "[Debug] Green Camera Roll",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Development",
+                "GreenCameraRoll",
             ],
             "flutterMode": "debug",
         },
         {
-            "name": "[Profile] Development",
+            "name": "[Release] Green Camera Roll",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Development",
-            ],
-            "flutterMode": "profile",
-        },
-        {
-            "name": "[Release] Development",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--flavor",
-                "Development",
+                "GreenCameraRoll",
             ],
             "flutterMode": "release",
         },
         {
-            "name": "[Debug] Staging",
+            "name": "[Debug] Green File System",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Staging",
+                "GreenFileSystem",
             ],
             "flutterMode": "debug",
         },
         {
-            "name": "[Profile] Staging",
+            "name": "[Release] Green File System",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Staging",
-            ],
-            "flutterMode": "profile",
-        },
-        {
-            "name": "[Release] Staging",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--flavor",
-                "Staging",
+                "GreenFileSystem",
             ],
             "flutterMode": "release",
         },
         {
-            "name": "[Debug] Production",
+            "name": "[Debug] Red Build In Camera",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Production",
+                "RedBuildInCamera",
             ],
             "flutterMode": "debug",
         },
         {
-            "name": "[Profile] Production",
+            "name": "[Release] Red Build In Camera",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "Production",
-            ],
-            "flutterMode": "profile",
-        },
-        {
-            "name": "[Release] Production",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--flavor",
-                "Production",
+                "RedBuildInCamera",
             ],
             "flutterMode": "release",
-        }
+        },
+        {
+            "name": "[Debug] Red Camera Roll",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "RedCameraRoll",
+            ],
+            "flutterMode": "debug",
+        },
+        {
+            "name": "[Release] Red Camera Roll",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "RedCameraRoll",
+            ],
+            "flutterMode": "release",
+        },
+        // {
+        //     "name": "[Debug] Development",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Development",
+        //     ],
+        //     "flutterMode": "debug",
+        // },
+        // {
+        //     "name": "[Profile] Development",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Development",
+        //     ],
+        //     "flutterMode": "profile",
+        // },
+        // {
+        //     "name": "[Release] Development",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Development",
+        //     ],
+        //     "flutterMode": "release",
+        // },
+        // {
+        //     "name": "[Debug] Staging",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Staging",
+        //     ],
+        //     "flutterMode": "debug",
+        // },
+        // {
+        //     "name": "[Profile] Staging",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Staging",
+        //     ],
+        //     "flutterMode": "profile",
+        // },
+        // {
+        //     "name": "[Release] Staging",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Staging",
+        //     ],
+        //     "flutterMode": "release",
+        // },
+        // {
+        //     "name": "[Debug] Production",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Production",
+        //     ],
+        //     "flutterMode": "debug",
+        // },
+        // {
+        //     "name": "[Profile] Production",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Production",
+        //     ],
+        //     "flutterMode": "profile",
+        // },
+        // {
+        //     "name": "[Release] Production",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": [
+        //         "--flavor",
+        //         "Production",
+        //     ],
+        //     "flutterMode": "release",
+        // }
     ]
 }

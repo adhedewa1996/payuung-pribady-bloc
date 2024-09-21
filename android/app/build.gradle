@@ -1,3 +1,9 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -21,15 +27,16 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
 project.ext.envConfigFiles = [
-        development: ".env.development",
-        staging: ".env.staging",
-        production: ".env.production",
+    development: ".env.development",
+    staging: ".env.staging",
+    production: ".env.production",
+    greencameraroll: ".env.app.green.camera.roll",
+    greenfilesystem: ".env.app.green.filesystem",
+    redbuildincamera: ".env.app.red.built.in.camera",
+    redcameraroll: ".env.app.red.camera.roll",
 ]
+
 apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
 
 android {
@@ -65,6 +72,12 @@ android {
             storeFile file('debug-keystore.jks')
             storePassword 'debug12345'
         }
+        release {
+            keyAlias 'debug'
+            keyPassword 'debug12345'
+            storeFile file('debug-keystore.jks')
+            storePassword 'debug12345'
+        }
     }
 
     buildTypes {
@@ -86,29 +99,61 @@ android {
         }
     }
 
-    flavorDimensions "gredu"
+    flavorDimensions "camera-calculator"
     productFlavors {
         def developmentSigningVariable = signingConfigs.debug
 
         Development {
             signingConfig developmentSigningVariable
-            dimension "gredu"
+            dimension "camera-calculator"
             applicationIdSuffix project.env.get("APP_SUFFIX_ID")
             manifestPlaceholders = [
-                    appName   :  project.env.get("APP_NAME"),
+                appName   :  project.env.get("APP_NAME"),
             ]
         }
         Staging {
-            dimension "gredu"
+            dimension "camera-calculator"
             applicationIdSuffix project.env.get("APP_SUFFIX_ID")
             manifestPlaceholders = [
-                    appName   :  project.env.get("APP_NAME"),
+                appName   :  project.env.get("APP_NAME"),
             ]
         }
         Production {
-            dimension "gredu"
+            dimension "camera-calculator"
             manifestPlaceholders = [
-                    appName   :  project.env.get("APP_NAME"),
+                appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        GreenCameraRoll {
+            dimension "camera-calculator"
+            signingConfig developmentSigningVariable
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        GreenFileSystem {
+            dimension "camera-calculator"
+            signingConfig developmentSigningVariable
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        RedBuildInCamera {
+            dimension "camera-calculator"
+            signingConfig developmentSigningVariable
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                appName   :  project.env.get("APP_NAME"),
+            ]
+        }
+        RedCameraRoll {
+            dimension "camera-calculator"
+            signingConfig developmentSigningVariable
+            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
+            manifestPlaceholders = [
+                appName   :  project.env.get("APP_NAME"),
             ]
         }
     }
@@ -119,7 +164,7 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.material:material:1.6.0'
 }

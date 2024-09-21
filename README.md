@@ -1,16 +1,51 @@
-# calculator_camera
+# IMAGE-TO-RESULT CALCULATOR
 
-A new Flutter project.
+### Project ini dibangun menggunakan
 
-## Getting Started
+Flutter SDK 3.19.6
+Dart SDK 3.3.4.
 
-This project is a starting point for a Flutter application.
+* so makesure flutter version sebelum running code! agar tidak error.
 
-A few resources to get you started if this is your first Flutter project:
+### Documentation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* [Flutter](https://docs.flutter.dev/)
+* [Bloc](https://bloclibrary.dev/)
+* [VScode](https://code.visualstudio.com/docs)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Sebelum mulai, mari Set-Up tools / install dibawah
+
+* **pub get** : jangan lupa selalu intall depencendy di pubspec.yaml
+* **VScode**
+
+### Project Tree
+
+```editorconfig
+├── app
+│   ├── bloc
+│   ├── commons
+│   │   ├── extentions
+│   │   ├── models
+│   │   ├── repo
+│   │   ├── services
+│   │   └── widgets
+│   ├── page
+│   │   └── home
+│   ├── routing
+│   │   └── route.dart
+├── main.dart
+```
+
+### How to Run With Flavor In VSCode
+
+* Windows : CTRL + LEFT SHIFT + D .. lalu pilih flavor
+* Mac     : COMMAND + LEFT SHIFT + D .. lalu pilih flavor
+
+* Flavor available:
+  * GreenCameraRoll
+  * GreenFileSystem
+  * RedBuildInCamera
+  * RedCameraRoll
+
+* Developer note:
+  flavor ios, jika dicek bundler indetifier .. untuk flavor diatas .. akan bundler-nya akan sama semua .. karena saat build phase .. akan me-replace tmp.xconfig dengan flavor yang dipilih.

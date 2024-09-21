@@ -1,4 +1,4 @@
-import 'package:calculator_camera/app/page/home.dart';
+import 'package:calculator_camera/app/page/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,4 +1,4 @@
 APP_ID=com.calculator.camera.adhedewa
-APP_NAME=[STAGING] Capybara
-APP_SUFFIX_ID=.staging
+APP_NAME=[GREEN] Filesystem
+APP_SUFFIX_ID=.green.filesystem
 BASE_URL=https:/$()/signalapps.okezone.com

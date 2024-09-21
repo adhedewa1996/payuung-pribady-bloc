@@ -21,7 +21,7 @@ mixin _$ArithmeticState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$ArithmeticState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$ArithmeticState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -133,7 +133,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) {
     return initial();
@@ -145,7 +145,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return initial?.call();
@@ -157,7 +157,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -253,7 +253,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -265,7 +265,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -277,7 +277,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -373,7 +373,7 @@ class _$EmptyImpl implements _Empty {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) {
     return empty();
@@ -385,7 +385,7 @@ class _$EmptyImpl implements _Empty {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return empty?.call();
@@ -397,7 +397,7 @@ class _$EmptyImpl implements _Empty {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -458,7 +458,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ArithmeticModel> detailsurah});
+  $Res call({List<ArithmeticModel> list});
 }
 
 /// @nodoc
@@ -472,12 +472,12 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? detailsurah = null,
+    Object? list = null,
   }) {
     return _then(_$SuccessImpl(
-      null == detailsurah
-          ? _value._detailsurah
-          : detailsurah // ignore: cast_nullable_to_non_nullable
+      null == list
+          ? _value._list
+          : list // ignore: cast_nullable_to_non_nullable
               as List<ArithmeticModel>,
     ));
   }
@@ -486,20 +486,19 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<ArithmeticModel> detailsurah)
-      : _detailsurah = detailsurah;
+  const _$SuccessImpl(final List<ArithmeticModel> list) : _list = list;
 
-  final List<ArithmeticModel> _detailsurah;
+  final List<ArithmeticModel> _list;
   @override
-  List<ArithmeticModel> get detailsurah {
-    if (_detailsurah is EqualUnmodifiableListView) return _detailsurah;
+  List<ArithmeticModel> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_detailsurah);
+    return EqualUnmodifiableListView(_list);
   }
 
   @override
   String toString() {
-    return 'ArithmeticState.success(detailsurah: $detailsurah)';
+    return 'ArithmeticState.success(list: $list)';
   }
 
   @override
@@ -507,13 +506,12 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._detailsurah, _detailsurah));
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_detailsurah));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_list));
 
   @JsonKey(ignore: true)
   @override
@@ -527,10 +525,10 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success(detailsurah);
+    return success(list);
   }
 
   @override
@@ -539,10 +537,10 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) {
-    return success?.call(detailsurah);
+    return success?.call(list);
   }
 
   @override
@@ -551,12 +549,12 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(detailsurah);
+      return success(list);
     }
     return orElse();
   }
@@ -603,10 +601,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements ArithmeticState {
-  const factory _Success(final List<ArithmeticModel> detailsurah) =
-      _$SuccessImpl;
+  const factory _Success(final List<ArithmeticModel> list) = _$SuccessImpl;
 
-  List<ArithmeticModel> get detailsurah;
+  List<ArithmeticModel> get list;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -680,7 +677,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<ArithmeticModel> detailsurah) success,
+    required TResult Function(List<ArithmeticModel> list) success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -692,7 +689,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<ArithmeticModel> detailsurah)? success,
+    TResult? Function(List<ArithmeticModel> list)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -704,7 +701,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<ArithmeticModel> detailsurah)? success,
+    TResult Function(List<ArithmeticModel> list)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {

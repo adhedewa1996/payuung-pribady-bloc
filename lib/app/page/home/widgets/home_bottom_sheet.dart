@@ -1,6 +1,6 @@
 import 'package:calculator_camera/app/bloc/storage/storage_cubit.dart';
 import 'package:calculator_camera/app/common/constants.dart';
-import 'package:calculator_camera/app/widgets/buttons.dart';
+import 'package:calculator_camera/app/common/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

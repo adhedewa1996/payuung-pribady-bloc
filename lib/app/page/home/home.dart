@@ -1,12 +1,12 @@
 import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_cubit.dart';
 import 'package:calculator_camera/app/bloc/theme/theme_cubit.dart';
 import 'package:calculator_camera/app/common/app_colors.dart';
-import 'package:calculator_camera/app/extentions/media_query_ext.dart';
-import 'package:calculator_camera/app/page/widgets/home_bottom_sheet.dart';
-import 'package:calculator_camera/app/page/widgets/home_header.dart';
-import 'package:calculator_camera/app/page/widgets/home_list_item.dart';
-import 'package:calculator_camera/app/widgets/buttons.dart';
-import 'package:calculator_camera/app/widgets/spacing.dart';
+import 'package:calculator_camera/app/common/extentions/media_query_ext.dart';
+import 'package:calculator_camera/app/page/home/widgets/home_bottom_sheet.dart';
+import 'package:calculator_camera/app/page/home/widgets/home_header.dart';
+import 'package:calculator_camera/app/page/home/widgets/home_list_item.dart';
+import 'package:calculator_camera/app/common/widgets/buttons.dart';
+import 'package:calculator_camera/app/common/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.veryLightGrey,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(
           '${FlutterConfig.get('APP_NAME')}',
@@ -43,8 +44,9 @@ class _HomePageState extends State<HomePage> {
             child: SingleChildScrollView(
               physics: ClampingScrollPhysics(),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacing.vertical(16),
+                  Spacing.vertical(24),
                   HomeHeader(),
                   Spacing.vertical(16),
                   HomeArithmeticList(),

@@ -1,11 +1,12 @@
 import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_list/arithmetic_list_cubit.dart';
 import 'package:calculator_camera/app/bloc/theme/theme_cubit.dart';
 import 'package:calculator_camera/app/common/models/arithmetic_model.dart';
-import 'package:calculator_camera/app/extentions/media_query_ext.dart';
-import 'package:calculator_camera/app/page/widgets/home_image.dart';
-import 'package:calculator_camera/app/widgets/spacing.dart';
+import 'package:calculator_camera/app/common/extentions/media_query_ext.dart';
+import 'package:calculator_camera/app/page/home/widgets/home_image.dart';
+import 'package:calculator_camera/app/common/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_config/flutter_config.dart';
 
 class HomeArithmeticList extends StatefulWidget {
   const HomeArithmeticList({super.key});
@@ -95,6 +96,9 @@ class _HomeArithmeticListState extends State<HomeArithmeticList> with SingleTick
       },
       itemBuilder: (context, index) {
         final item = items[index];
+        if (!(item.from ?? '').contains(FlutterConfig.get('APP_SUFFIX_ID'))) {
+          return SizedBox();
+        }
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
           padding: EdgeInsets.all(16),

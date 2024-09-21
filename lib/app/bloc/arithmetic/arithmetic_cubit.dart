@@ -7,12 +7,13 @@ import 'package:calculator_camera/app/common/constants.dart';
 import 'package:calculator_camera/app/common/models/arithmetic_model.dart';
 import 'package:calculator_camera/app/common/repo/arithmetic/arithmetic_database_repo.dart';
 import 'package:calculator_camera/app/common/repo/arithmetic/arithmetic_file_repo.dart';
-import 'package:calculator_camera/app/extentions/string_ext.dart';
+import 'package:calculator_camera/app/common/extentions/string_ext.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
@@ -130,7 +131,7 @@ class ArithmeticCubit extends Cubit<XFile?> {
           imagePath: imagePath,
           inputFromMlKit: inputFromMLKit,
           result: result,
-          from: from,
+          from: '${from} - ${FlutterConfig.get('APP_SUFFIX_ID')}',
           uint8List: '',
         ),
       );
@@ -140,7 +141,7 @@ class ArithmeticCubit extends Cubit<XFile?> {
           imagePath: imagePath,
           inputFromMlKit: inputFromMLKit,
           result: result,
-          from: from,
+          from: '${from} - ${FlutterConfig.get('APP_SUFFIX_ID')}',
           uint8List: '',
         ),
       );

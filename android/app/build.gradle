@@ -29,12 +29,6 @@ if (flutterVersionName == null) {
 
 project.ext.envConfigFiles = [
     development: ".env.development",
-    staging: ".env.staging",
-    production: ".env.production",
-    greencameraroll: ".env.app.green.camera.roll",
-    greenfilesystem: ".env.app.green.filesystem",
-    redbuildincamera: ".env.app.red.built.in.camera",
-    redcameraroll: ".env.app.red.camera.roll",
 ]
 
 apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
@@ -106,51 +100,6 @@ android {
         Development {
             signingConfig developmentSigningVariable
             dimension "camera-calculator"
-            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        Staging {
-            dimension "camera-calculator"
-            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        Production {
-            dimension "camera-calculator"
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        GreenCameraRoll {
-            dimension "camera-calculator"
-            signingConfig developmentSigningVariable
-            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        GreenFileSystem {
-            dimension "camera-calculator"
-            signingConfig developmentSigningVariable
-            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        RedBuildInCamera {
-            dimension "camera-calculator"
-            signingConfig developmentSigningVariable
-            applicationIdSuffix project.env.get("APP_SUFFIX_ID")
-            manifestPlaceholders = [
-                appName   :  project.env.get("APP_NAME"),
-            ]
-        }
-        RedCameraRoll {
-            dimension "camera-calculator"
-            signingConfig developmentSigningVariable
             applicationIdSuffix project.env.get("APP_SUFFIX_ID")
             manifestPlaceholders = [
                 appName   :  project.env.get("APP_NAME"),

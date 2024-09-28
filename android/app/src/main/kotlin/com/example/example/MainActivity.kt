@@ -1,4 +1,4 @@
-package com.calculator.camera.adhedewa
+package com.payuung.pribadi.adhedewa
 
 import io.flutter.embedding.android.FlutterActivity
 

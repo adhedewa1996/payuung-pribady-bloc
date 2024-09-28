@@ -1,12 +1,10 @@
-import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_cubit.dart';
-import 'package:calculator_camera/app/bloc/arithmetic/arithmetic_list/arithmetic_list_cubit.dart';
-import 'package:calculator_camera/app/bloc/storage/storage_cubit.dart';
-import 'package:calculator_camera/app/bloc/theme/theme_cubit.dart';
-import 'package:calculator_camera/app/common/services/local_storage_services.dart';
-import 'package:calculator_camera/app/routing/route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
+import 'package:get/get.dart';
+import 'package:payuung_pribadi_app/app/commons/services/local_storage_services.dart';
+import 'package:payuung_pribadi_app/app/commons/services/theme_services.dart';
+import 'package:payuung_pribadi_app/app/core/config/theme/theme.dart';
+import 'package:payuung_pribadi_app/app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,33 +21,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<ThemeCubit>(
-          create: (_) => ThemeCubit(),
-        ),
-        BlocProvider<StorageCubit>(
-          create: (_) => StorageCubit(),
-        ),
-        BlocProvider<ArithmeticCubit>(
-          create: (_) => ArithmeticCubit(),
-        ),
-        BlocProvider<ArithmeticListCubit>(
-          create: (_) => ArithmeticListCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: BlocBuilder<ThemeCubit, ThemeData>(
-          builder: (context, theme) {
-            return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              routerConfig: router,
-              theme: theme,
-            );
-          },
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Payuung Pribadi',
+      builder: (context, child) {
+        final mediaQueryData = MediaQuery.of(context);
+        final scale = mediaQueryData.textScaler.clamp(minScaleFactor: 1, maxScaleFactor: 1.3);
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaler: scale),
+          child: GetMaterialApp(
+            title: 'Payuung Pribadi',
+            theme: Themes.light,
+            darkTheme: Themes.dark,
+            themeMode: ThemeService().theme,
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppPages.INITIAL,
+            getPages: AppPages.routes,
+            defaultTransition: Transition.rightToLeftWithFade,
+          ),
+        );
+      },
     );
   }
 }

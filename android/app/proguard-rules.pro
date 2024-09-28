@@ -1,6 +1,6 @@
--keep class com.calculator.camera.adhedewa.staging.BuildConfig { *; }
--keep class com.calculator.camera.adhedewa.development.BuildConfig { *; }
--keep class com.calculator.camera.adhedewa.BuildConfig { *; }
+-keep class com.payuung.pribadi.adhedewa.staging.BuildConfig { *; }
+-keep class com.payuung.pribadi.adhedewa.development.BuildConfig { *; }
+-keep class com.payuung.pribadi.adhedewa.BuildConfig { *; }
 -keep class com.byneapp.flutter_config.FlutterConfigPlugin { *; }
 -keep class androidx.lifecycle.DefaultLifecycleObserver
 

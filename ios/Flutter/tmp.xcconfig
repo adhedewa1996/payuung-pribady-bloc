@@ -1,4 +1,4 @@
-APP_ID=com.calculator.camera.adhedewa
-APP_NAME=[GREEN] Filesystem
-APP_SUFFIX_ID=.green.filesystem
-BASE_URL=https:/$()/signalapps.okezone.com
+APP_ID=com.payuung.pribadi.adhedewa
+APP_NAME=[DEV] Payuung Pribadi
+APP_SUFFIX_ID=.dev
+BASE_URL=https:/$()/www.google.com

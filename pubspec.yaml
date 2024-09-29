@@ -13,10 +13,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_launcher_icons: ^0.12.0
 
-  # GETX DEPENDENCY
-  get: 4.6.5
-  get_cli: ^1.8.1
-  get_storage: ^2.1.1
+  # BLOC
+  flutter_bloc: ^8.1.5
+  bloc: ^8.1.4
+  hydrated_bloc:
+  freezed_annotation: ^2.4.1
 
   # API REQUEST DEPENDENCY
   dio: ^5.4.0

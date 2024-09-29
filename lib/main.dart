@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'package:get/get.dart';
-import 'package:payuung_pribadi_app/app/commons/services/local_storage_services.dart';
-import 'package:payuung_pribadi_app/app/commons/services/theme_services.dart';
-import 'package:payuung_pribadi_app/app/core/config/theme/theme.dart';
-import 'package:payuung_pribadi_app/app/routes/app_pages.dart';
+import 'package:payuung_pribadi_app/common/bloc/theme/theme_cubit.dart';
+import 'package:payuung_pribadi_app/common/widgets/datepicker/bloc/date_picker_cubit.dart';
+import 'package:payuung_pribadi_app/core/config/services/local_storage.dart';
+import 'package:payuung_pribadi_app/core/config/theme/theme.dart';
+import 'package:payuung_pribadi_app/presentation/dashboard/cubit/bottom_navigation_cubit.dart';
+import 'package:payuung_pribadi_app/presentation/dashboard/page/dashboard.dart';
+import 'package:payuung_pribadi_app/presentation/home/cubit/wellness_cubit.dart';
+import 'package:payuung_pribadi_app/presentation/home/page/homeview.dart';
+import 'package:payuung_pribadi_app/presentation/profile/cubit/form/form_cubit.dart';
+import 'package:payuung_pribadi_app/presentation/profile/cubit/personal_information/personal_data/personal_data_cubit.dart';
+import 'package:payuung_pribadi_app/presentation/profile/cubit/profile/profile_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,26 +28,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Payuung Pribadi',
-      builder: (context, child) {
-        final mediaQueryData = MediaQuery.of(context);
-        final scale = mediaQueryData.textScaler.clamp(minScaleFactor: 1, maxScaleFactor: 1.3);
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaler: scale),
-          child: GetMaterialApp(
-            title: 'Payuung Pribadi',
-            theme: Themes.light,
-            darkTheme: Themes.dark,
-            themeMode: ThemeService().theme,
-            debugShowCheckedModeBanner: false,
-            initialRoute: AppPages.INITIAL,
-            getPages: AppPages.routes,
-            defaultTransition: Transition.rightToLeftWithFade,
-          ),
-        );
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => ThemeCubit(),
+        ),
+        BlocProvider(
+          create: (_) => WellnessCubit()..fetchWellness(),
+        ),
+        BlocProvider(
+          create: (_) => BottomNavigationCubit()..init(),
+        ),
+        BlocProvider(
+          create: (_) => PersonalFormCubit()..init(),
+        ),
+        BlocProvider(
+          create: (_) => DatePickerCubit()..init(),
+        ),
+        BlocProvider(
+          create: (_) => PersonalDataCubit()..init(),
+        ),
+        BlocProvider(
+          create: (_) => ProfileCubit()..init(),
+        ),
+      ],
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, mode) => MaterialApp(
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
+          themeMode: ThemeMode.light,
+          debugShowCheckedModeBanner: false,
+          home: Dashboard(),
+        ),
+      ),
     );
   }
 }
